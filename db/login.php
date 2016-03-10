@@ -39,7 +39,7 @@
 						$_SESSION['name'] = $rows[0]['fName'];
 
 						// Once the sessions variables have been set, redirect them to the landing page / home page.
-						header('location: home.php');
+						header('location: signedin.php');
 	          exit;
 					}
 
