@@ -17,11 +17,14 @@
   <!-- Theme Skin -->
   <link rel="stylesheet" href="css/skins/_all-skins.min.css">
 
+  <link href="summernote/summernote.css" rel="stylesheet">
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.css"/>
+ 
  <?php
  //Main database functions
  include 'db/dbcore.php';
- 
+
  //Variables used in page
  include 'modules/vars.php';
 
@@ -33,6 +36,7 @@
 
  //Fill variables from database
  include 'get-basic-data.php'
+
  ?>
 
 </head>
