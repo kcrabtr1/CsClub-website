@@ -23,7 +23,7 @@
       //Yay it worked tell the user
   }
   }
-  
+
   //get data stuff
   $rows = db_select("SELECT fName,lName,username,phone,email,password FROM MEMBER WHERE memberID='".$uId."' ");
   if(($rows !== false)&&(count($rows) > 0)) {

@@ -5,10 +5,8 @@
   }
   else{
     include_once 'db/dbcore.php';
-
     // Connect to the database
     $connection = db_connect();
-
     // Quote and escape form submitted values
     $fname = db_quote($_POST['fName']);
     $lname = db_quote($_POST['lName']);
@@ -16,7 +14,6 @@
     $phone = db_quote($_POST['Phone']);
     $user = db_quote($_POST['Username']);
     $pass = db_quote($_POST['Password']);
-
     // Insert the values into the database
     $result = db_query("INSERT INTO MEMBER (fName,lName,email,phone,username,password) VALUES (" . $fname . "," . $lname . "," . $email . "," . $phone . "," . $user . "," . $pass . ")");
     if($result === false) {
@@ -25,7 +22,6 @@
     } else {
     // We successfully inserted a row into the database
     }
-
   }
   ?>
 
