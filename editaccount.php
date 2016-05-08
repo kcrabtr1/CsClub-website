@@ -9,9 +9,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
     <script type="text/javascript" src="js/validator-profile.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <title>Home</title>
 
@@ -23,6 +23,12 @@
   </head>
 
   <body>
+  <style>.alert{position: absolute;
+top: 30px;
+left: 20px;
+right: 20px;
+z-index: 10000;}</style>
+<div id="alert_placeholder"></div>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -41,7 +47,7 @@
             <li><a href="about.php">About</a></li>
             <li><a href="contact.php">Contact</a></li>
             <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Hello <?=$fname?> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?=$pic?>" class="img-circle" width="25" height="25"> Hello <?=$fname?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="editaccount.php">Edit Profile</a></li>
             <li role="separator" class="divider"></li>
@@ -59,7 +65,7 @@
     <h1>Edit Profile<small>Make changes to your profile here</small></h1>
   </div>
   <div class="well">
-    <form role="form" data-toggle="validator" method="POST" action="">
+    <form role="form" data-toggle="validator" method="POST" action="" enctype="multipart/form-data">
       <ul>
         <div class="input-group">
       <span class="input-group-addon" >First Name </span>
@@ -101,6 +107,12 @@
       <span class="input-group-addon" >Confirm Password</span>
       <input type="password" class="form-control" name="confPass" value="" aria-describedby="basic-addon1" data-match="#Password" data-error="Passwords Don't Match" required>
       <div class="help-block with-errors"></div>
+    </div>
+    <!-- File Button -->
+    <p>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="uploadPic">Upload Profile Picture</label>
+        <input id="uploadPic" name="uploadPic" class="input-file" type="file">
     </div>
     <p>
     <p>
