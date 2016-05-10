@@ -1,6 +1,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="icon" type="image/x-icon" href="img/afavicon.ico" />
+
   <title>Admin | CSC</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -20,7 +23,7 @@
   <link href="summernote/summernote.css" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.css"/>
- 
+
  <?php
  //Main database functions
  include 'db/dbcore.php';
@@ -28,14 +31,14 @@
  //Variables used in page
  include 'modules/vars.php';
 
+ //Fill variables from database
+ include 'get-basic-data.php';
+
  //LOAD THEME
  include 'modules/background.php';
 
  //Check for link clicked and change page content
  include 'modules/cont-change.php';
-
- //Fill variables from database
- include 'get-basic-data.php'
 
  ?>
 

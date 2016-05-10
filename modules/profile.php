@@ -8,7 +8,15 @@ if(isset($_POST['profileSubmit'])){
   $nemail = db_quote($_POST['email']);
   $npass = db_quote($_POST['pass']);
 
-  $result = db_query("UPDATE member SET fName=$nfname, lName=$nlname, username=$nusername, phone=$nphone, email=$nemail, password=$npass  WHERE memberID=$uId");
+  if(!isset($_FILES['uploadPic'])){
+      //No file
+      $npic = 'img/default-profile.png';
+    }else{
+      //File found
+      include_once 'uploadP.php';
+    }
+
+  $result = db_query("UPDATE member SET fName=$nfname, lName=$nlname, username=$nusername, phone=$nphone, email=$nemail, password=$npass, pic='$npic'  WHERE memberID=$uId");
   if($result === false) {
     $error = db_error();
   }else{
@@ -44,7 +52,7 @@ if(($rows !== false)&&(count($rows) > 0)) {
     <div class="col-md-8">
       <!--Form Content-->
       <div class="well">
-        <form role="form" data-toggle="validator" method="POST" action="">
+        <form role="form" data-toggle="validator" method="POST" action="" enctype="multipart/form-data">
           <ul>
             <div class="input-group">
           <span class="input-group-addon" >First Name </span>
@@ -86,6 +94,12 @@ if(($rows !== false)&&(count($rows) > 0)) {
           <span class="input-group-addon" >Confirm Password</span>
           <input type="password" class="form-control" name="confPass" value="" aria-describedby="basic-addon1" data-match="#Password" data-error="Passwords Don't Match" required>
           <div class="help-block with-errors"></div>
+        </div>
+        <!-- File Button -->
+        <p>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="uploadPic">Upload Profile Picture</label>
+            <input id="uploadPic" name="uploadPic" class="input-file" type="file">
         </div>
         <p>
         <p>

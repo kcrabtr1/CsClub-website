@@ -1,5 +1,5 @@
 <?php
-$target_dir = "../uploads/bg";
+$target_dir = "../uploads/bg/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -10,6 +10,8 @@ if(isset($_POST["upfile"])) {
     include_once '../db/dbcore.php';
     // Connect to the database
     $connection = db_connect();
+
+    $uId = db_quote($_POST['uId']);
 
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
@@ -24,6 +26,7 @@ if(isset($_POST["upfile"])) {
 
 // Check if file already exists
 if (file_exists($target_file)) {
+    
     echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
@@ -45,7 +48,7 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       $fl = db_quote($target_file);
-      $result = db_query("UPDATE settings SET value2=$fl WHERE setting='current-theme'");
+      $result = db_query("UPDATE settings SET value2=$fl WHERE setting=$uId");
       if($result === false) {
         $error = db_error();
         echo "$error";

@@ -1,6 +1,9 @@
 <?php
   //Limit of notifications to be displayed
-  $notifyLimit = 10;
+  $rows = db_select("SELECT value3 FROM settings WHERE setting=$uId ");
+    if(($rows !== false)&&(count($rows) > 0)) {
+      $notifyLimit = $rows[0]['value3'];
+    }
   //Get Count of notifications
   $rows = db_select("SELECT COUNT(*) AS notCount FROM notify LIMIT ".$notifyLimit."");
   $notifyCount = $rows[0]['notCount'];

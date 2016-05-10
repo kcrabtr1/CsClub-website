@@ -20,6 +20,12 @@
     $userPic = $rows[0]['pic'];
   }
 
+  //notifications limit from user settings
+  $rows = db_select("SELECT value3 FROM settings WHERE setting=$uId ");
+  if(($rows !== false)&&(count($rows) > 0)) {
+    $notifyLimit = $rows[0]['value3'];
+
+  }
 
   //Check number of registered users
   $rows = db_select("SELECT COUNT(*) AS numUsers FROM member WHERE active=1");

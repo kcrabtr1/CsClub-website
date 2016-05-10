@@ -152,7 +152,7 @@ else{
 if (isset($_POST['deAccount'])){
 if ($uAct==0){
   //Activate user
-  $rows = db_select("UPDATE member SET active=1 WHERE memberID=".$suID." ");
+  $rows = db_query("UPDATE member SET active=1 WHERE memberID=".$suID." ");
 
   //Add notification
   $newNotify = '<i class="fa fa-user text-green"></i>'.db_squote($username).' reactivated user account '.db_squote($ufn).'';
@@ -162,7 +162,7 @@ if ($uAct==0){
   //echo $error;
 }else{
   //Deactivate user
-  $rows = db_select("UPDATE member SET active=0 WHERE memberID=".$suID." ");
+  $rows = db_query("UPDATE member SET active=0 WHERE memberID=".$suID." ");
 
   //Add notification
   $newNotify = '<i class="fa fa-times text-red"></i>'.db_squote($username).' deactivated user account '.db_squote($ufn).'';
@@ -223,24 +223,30 @@ if ($uAct==0){
 
 
 
-<!--ADD EBOARD PERMISSIONS AND ROLE-->
+<!--ADD EBOARD PERMISSIONS AND ROLE AND SETTINGS-->
 <?php
   if (isset($_POST['makeEb'])){
   $dahRole = db_quote($_POST['dahRole']);
-  $result = db_select("UPDATE member SET eboard=1, role=$dahRole WHERE memberID=".$suID." ");
+  $result = db_query("UPDATE member SET eboard=1, role=$dahRole WHERE memberID=".$suID." ");
   if($result === false) {
     $error = db_error();
     echo $error;
   }else{
-    //We all good
-    //Add notification
-    $newNotify = '<i class="fa fa-pencil-square-o text-green"></i>'.db_squote($username).' added '.db_squote($ufn).' to eboard ';
-    include 'add-notify.php';
+    $result = db_query("INSERT INTO settings (setting,value3) VALUES (".$suID.",10)");
+    if($result === false) {
+      $error = db_error();
+      echo $error;
+    }else{
+      //We all good
+      //Add notification
+      $newNotify = '<i class="fa fa-pencil-square-o text-green"></i>'.db_squote($username).' added '.db_squote($ufn).' to eboard ';
+      include 'add-notify.php';
 
-    $_SESSION['showM'] = 'Operation Succesfully!';
+      $_SESSION['showM'] = 'Operation Succesfully!';
 
-    echo "<script>window.location.replace('ahome.php?page=userAccounts');</script>";
-}
+      echo "<script>window.location.replace('ahome.php?page=userAccounts');</script>";
+    }
+  }
 }
  ?>
  <div class="modal fade" id="eboardAccountModal" role="dialog">
@@ -276,18 +282,24 @@ if ($uAct==0){
 <!--REMOVE EBOARD PERMISSIONS-->
  <?php
   if (isset($_POST['removeEb'])){
-    $result = db_select("UPDATE member SET eboard=0, role='' WHERE memberID=".$suID." ");
+    $result = db_query("UPDATE member SET eboard=0, role='' WHERE memberID=".$suID." ");
     if($result === false) {
       $error = db_error();
       echo $error;
     }else{
-      //We all good
-      //Add notification
-      $newNotify = '<i class="fa fa-times text-red"></i>'.db_squote($username).' removed '.db_squote($ufn).' from eboard ';
-      include 'add-notify.php';
+      db_query("DELETE FROM settings WHERE setting=".$suID." ");
+      if($result === false) {
+        $error = db_error();
+        echo $error;
+      }else{
+        //We all good
+        //Add notification
+        $newNotify = '<i class="fa fa-times text-red"></i>'.db_squote($username).' removed '.db_squote($ufn).' from eboard ';
+        include 'add-notify.php';
 
-      $_SESSION['showM'] = 'Operation Succesfully!';
-      echo "<script>window.location.replace('ahome.php?page=userAccounts');</script>";
+        $_SESSION['showM'] = 'Operation Succesfully!';
+        echo "<script>window.location.replace('ahome.php?page=userAccounts');</script>";
+      }
     }
   }
   ?>

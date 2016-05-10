@@ -2,50 +2,42 @@
 <aside class="control-sidebar control-sidebar-dark">
   <!-- Create the tabs -->
   <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-    <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-paint-brush"></i></a></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
     <!-- Home tab content -->
     <div class="tab-pane active" id="control-sidebar-home-tab">
 
-      <h3 class="control-sidebar-heading">Tasks Progress</h3>
-      <ul class="control-sidebar-menu">
-        <li>
-          <a href="javascript::;">
-            <h4 class="control-sidebar-subheading">
-              CSC Website
-              <span class="label label-danger pull-right">15%</span>
-            </h4>
-            <div class="progress progress-xxs">
-              <div class="progress-bar progress-bar-danger" style="width: 15%"></div>
-            </div>
-          </a>
-        </li>
+      <h3 class="control-sidebar-heading">General Setting</h3>
+      <form role="form" method="POST" action="modules/change-setting.php">
+          <div class="form-group">
+      <label class="control-sidebar-subheading">
+        Number of Notifications to Show
+      </label>
+      <p>
+        <div class="row">
+        <div class="col-md-6">
+      <input type="text" class="form-control" name="notifyNum" required>
+      <p>
+    </div>
+  </div>
 
-        <li>
-          <a href="javascript::;">
-            <h4 class="control-sidebar-subheading">
-              Budget Stuff
-              <span class="label label-info pull-right">75%</span>
-            </h4>
-            <div class="progress progress-xxs">
-              <div class="progress-bar progress-bar-info" style="width: 75%"></div>
-            </div>
-          </a>
-        </li>
-      </ul><!-- /.control-sidebar-menu -->
+        <input type="hidden" value="<?=$uId?>" name="uId">
+        <button type="submit" class="btn btn-primary" name="notifyChange">Apply</button>
+    </div>
+  </form>
 
 
 
     </div><!-- /.tab-pane -->
     <!-- Stats tab content -->
-    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
+    <div class="tab-pane" id="control-sidebar-stats-tab">Theme Tab Content</div><!-- /.tab-pane -->
     <!-- Settings tab content -->
     <div class="tab-pane" id="control-sidebar-settings-tab">
-        <h3 class="control-sidebar-heading">General Settings</h3>
-        <form role="form" method="POST" action="modules/change-theme.php">
+        <h3 class="control-sidebar-heading">Theme Settings</h3>
+        <form role="form" method="POST" action="modules/change-setting.php">
         <div class="form-group">
           <label class="control-sidebar-subheading">
             Theme
@@ -70,6 +62,7 @@
               <option value="skin-black-light">light black</option>
             </select>
             <p>
+              <input type="hidden" value="<?=$uId?>" name="uId">
               <button type="submit" class="btn btn-primary" name="themeChange">Apply</button>
           </p>
         </div><!-- /.form-group -->
@@ -78,6 +71,7 @@
         <label class="control-sidebar-subheading">
             Select image to upload:
         </label>
+        <input type="hidden" value="<?=$uId?>" name="uId">
         <input type="file" name="fileToUpload" id="fileToUpload">
         <button type="submit" value="UploadImage" class="btn btn-primary" name="upfile">Submit</button>
       </form>

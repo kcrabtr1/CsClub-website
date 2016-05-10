@@ -27,12 +27,14 @@ $rank = "Admin";
 $memberDate = "January 1, 1970";
 //Notification amount
 $notifyCount = "0";
+//Notification defualt LIMIT
+$notifyLimit = 10;
 //Todo count
 $todoCount = "0";
 //Registered Users
 $regUsers = "0";
 //Unique Visitors
-$uniqueV = "0";
+$uniqueV = "1";
 //Online Users
 $onlineNow = "0";
 //Default User image
