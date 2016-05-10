@@ -34,8 +34,7 @@
       //Yay it worked tell the user
       alertMsg('Profile Updated Successfully!', 'alert-success');
   }
-  }
-
+}
   //get data stuff
   $rows = db_select("SELECT fName,lName,username,phone,email,password,pic FROM MEMBER WHERE memberID='".$uId."' ");
   if(($rows !== false)&&(count($rows) > 0)) {
