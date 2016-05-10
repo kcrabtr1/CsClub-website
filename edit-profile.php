@@ -16,7 +16,7 @@
     $nemail = db_quote($_POST['email']);
     $npass = db_quote($_POST['pass']);
 
-    if(!isset($_FILES['uploadPic'])){
+    if(!isset($_FILES['uploadPic']['name']) | ($_FILES['uploadPic']['name']=='')){
         //No file
         $npic = 'img/default-profile.png';
       }else{

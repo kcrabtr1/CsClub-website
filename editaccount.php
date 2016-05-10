@@ -9,15 +9,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
-    <script type="text/javascript" src="js/validator-profile.js"></script>
+    
 
     <title>Home</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
 
 
   </head>
@@ -43,9 +41,10 @@ z-index: 10000;}</style>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="Downloads.php">Downloads</a></li>
+            <li><a href="Downloads.php">Downloads</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="contact.php">Contact</a></li>
+            <li><div class="btn-group">
             <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?=$pic?>" class="img-circle" width="25" height="25"> Hello <?=$fname?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -54,6 +53,7 @@ z-index: 10000;}</style>
             <li><a href="db/logout.php">Logout</a></li>
           </ul>
         </li>
+      </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -128,8 +128,10 @@ z-index: 10000;}</style>
     <div class="container">
 
     </div><!-- /.container -->
+    <script src="bootstrap/js/jquery.js"></script>
 
-
-
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/validator-profile.js"></script>
   </body>
 </html>

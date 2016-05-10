@@ -1,6 +1,5 @@
 <?php include 'db/accesscontrol.php' ?>
 <?php include 'edit-profile.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
     <link rel="stylesheet"  href="css/custom.css">
-    <title>Home</title>
+    <title>About=</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +34,6 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="Downloads.php">Downloads</a></li>
-            <li><a href="about.php">About</a></li>
             <li><a href="contact.php">Contact</a></li>
             <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?=$pic?>" class="img-circle" width="25" height="25"> Hello <?=$fname?> <span class="caret"></span></a>
@@ -56,48 +54,23 @@
 
         <!-- First Featurette -->
         <div class="featurette">
-            <h1 class="featurette-heading">Welcome to the Downloads section!</h1>
-            <p class="lead">Downloads Available:</p>
-            <?php
-            $rows = db_select("SELECT resourceID, title, description, url FROM resources");
-            if(($rows !== false)&&(count($rows) > 0)) {
-              foreach ($rows as $row){
-               //Format Accordingly
-               echo "<div class='row'>";
-               echo "<div class='col-md-1 pull-left'>";
-               echo "<a href='?page=resources&rID=".$row['resourceID']."&action=delete'><h4><i class='fa fa-times fa-2x text-danger'></i></h4></a>";
-               echo "</div>";
-               echo "<div class='col-md-8 pull-left'>";
-               echo "<a href='".$row['url']."' target='_blank'>";
-               echo "<h4>".$row['title']."<br>";
-               echo "<small>".$row['description']."</small>";
-               echo "</h4></a>";
-               echo "</div>";
-               echo "</div>";
-             }
-            }
-             ?>
+            <h1 class="featurette-heading">About the Computer Science Club</h1>
+            <p class="lead">We're here for you!</p>
+            <h4><p><ul style="list-style-type:disc">
+                <li>The computer Science club is a place where you can hangout and meet other people within the CS or computer info majors.</li>
+                <li>In the computer Science Club, which is located in the basement of the Edgerly building in the far corner. Just come on in, sign in and make yourself at home.</li>
+                <li>Everyone within the computer science club is friendly and willing to answer any questions you have or help you with any problems you may have.</li>
+                <p></p>
+                <img src = "img/computer-science-club.jpg">
+              </ul></p></h4>
         </div>
 
         <hr class="featurette-divider">
 
-        <!-- Second Featurette
-        <div class="featurette" id="services">
-            <h2 class="featurette-heading">MORE CONTENT
-                <span class="text-muted">MEMBERS STUFF.</span></h2>
-            <p class="lead">THIS IS WHERE CONTENT FOR MEMBERS IS.</p>
-        </div>
-        <hr class="featurette-divider">
 
+    <div class="container">
 
-        <div class="featurette" id="contact">
-            <h2 class="featurette-heading">EVEN MORE MEMBERS CONTENT
-                <span class="text-muted">THIS IS ADDITIONAL CONTENT SPACE.</span></h2>
-            <p class="lead">MORE CONTENT FOR MEMBERS.</p>
-        </div>
-        <hr class="featurette-divider">
--->
-
+    </div><!-- /.container -->
 
     <!-- jQuery -->
     <script src="bootstrap/js/jquery.js"></script>

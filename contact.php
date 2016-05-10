@@ -1,4 +1,4 @@
-<?php include 'db/accesscontrol.php'; ?>
+<?php include 'db/accesscontrol.php' ?>
 <?php include 'edit-profile.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,12 +9,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Home</title>
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="stylesheet"  href="css/custom.css">
+    <title>Contact</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
 
   </head>
 
@@ -35,20 +35,14 @@
           <ul class="nav navbar-nav">
             <li><a href="Downloads.php">Downloads</a></li>
             <li><a href="about.php">About</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><div class="btn-group">
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?=$pic?>" class="img-circle" width="25" height="25"> Hello <?=$fname?> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="editaccount.php">Edit Profile</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="db/logout.php">Logout</a></li>
-              </ul>
-            </div>
-          </li>
-          </li>
+            <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?=$pic?>" class="img-circle" width="25" height="25"> Hello <?=$fname?> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="editaccount.php">Edit Profile</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="db/logout.php">Logout</a></li>
           </ul>
-          <ul class="navbar-right">
+        </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -60,31 +54,19 @@
 
         <!-- First Featurette -->
         <div class="featurette">
-            <h1 class="featurette-heading">Welcome back!</h1>
-            <p class="lead">News Feed:</p>
-            <?php
-            //NEWSFEED CODE! MODIFY AS NEEDED!
-            include_once 'db/dbcore.php';
-
-            $rows = db_select("SELECT postAuthor, postBody, postTime FROM newsfeed");
-            if(($rows !== false)&&(count($rows) > 0)) {
-              foreach ($rows as $row){
-               $bodyCode = html_entity_decode($row['postBody']);
-               $bodyCode = preg_replace('/(^[\"\']|[\"\']$)/', '', $bodyCode);
-               $formatedTime = substr($row['postTime'], 0, 10);
-
-               //Format Accordingly
-               echo "<blockquote class='blockquote-reverse'>";
-               echo "<p>$bodyCode</p>";
-               echo "Post by: ".$row['postAuthor']." <cite title='Source Title'>On $formatedTime </cite>";
-               echo "</blockquote>";
-             }
-            }
-            ?>
+            <h1 class="featurette-heading">Computer Science Club</h1>
+            <p class="lead">Who to contact:</p>
+            <h4><p><ul style="list-style-type:disc">
+                <li>President of the club Josh, who can be reached at jnasiatk@student.fitchburgstate.edu</li>
+                <li>If you need to get into the computer science club room, email the secretary Tom at thundt@student.fitchburgstate.edu</li>
+                <li>And the computer science club email is compsci@student.fitchburgstate.edu</li>
+              </ul></p></h4>
         </div>
 
+        <hr class="featurette-divider">
 
 
+    <div class="container">
 
     </div><!-- /.container -->
 
