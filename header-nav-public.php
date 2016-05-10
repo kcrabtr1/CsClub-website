@@ -1,15 +1,8 @@
 <!-- Navigation -->
 <?php include_once 'db/login.php'; ?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="container">
-        <style>.alert{position: absolute;
-      top: 30px;
-      left: 20px;
-      right: 20px;
-      z-index: 10000;
-      }</style>
-        <div id="alert_placeholder"></div>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -23,16 +16,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="">Contact</a>
+                    <a href="public-contact.php">Contact</a>
                 </li>
                 <li>
-                    <a href="">Projects</a>
+                    <a href="projects.php">Projects</a>
                 </li>
                 <li>
-                    <a href="">Websites</a>
+                    <a href="website.php">Websites</a>
                 </li>
                 <li>
-                    <a href="">Resources</a>
+                    <a href="Resources.php">Resources</a>
                 </li>
             </ul>
           <ul class="navbar-right">
